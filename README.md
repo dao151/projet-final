@@ -3,8 +3,8 @@
 Liste des tâches permet d’ajouter, de modifier et de suivre des tâches dans le navigateur. Les tâches et le thème sont enregistrés dans localStorage, puis rechargés à l’ouverture de la page.
 
 **Auteur :** [dao151](https://github.com/dao151)  
-**Site :** https://dao151.github.io/[projet final]/  
-**Dépôt :** https://github.com/dao151/[projet final]
+**Site :** Site : https://dao151.github.io/projet-final/ 
+**Dépôt :** (https://github.com/dao151/projet-final)
 
 ## Aperçu
 
