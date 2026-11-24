@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liste de tâches</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Applique le thème mémorisé avant le premier affichage, pour éviter un flash. -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("todo-theme");
+        if (theme === "clair" || theme === "sombre") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (e) {
+        /* Lecture impossible : le thème système (CSS) reste utilisé. */
+      }
+    })();
+  </script>
+</head>
+<body>
+  <main class="app">
+    <header class="entete">
+      <h1>Liste de tâches</h1>
+      <button type="button" id="bouton-theme" aria-pressed="false" aria-label="Activer le thème sombre">
+        <span id="icone-theme" aria-hidden="true">☾</span>
+      </button>
+    </header>
+
+    <form id="formulaire" class="formulaire">
+      <label class="sr-only" for="champ-tache">Nouvelle tâche</label>
+      <input
+        id="champ-tache"
+        type="text"
+        maxlength="200"
+        placeholder="Que faut-il faire ?"
+        autocomplete="off"
+      >
+      <button type="submit">Ajouter</button>
+    </form>
+
+    <p id="message" class="message" role="alert"></p>
+
+    <div class="barre">
+      <p id="compteur" aria-live="polite">Aucune tâche restante</p>
+      <div class="filtres" role="group" aria-label="Filtrer les tâches">
+        <button type="button" data-filtre="toutes" aria-pressed="true">Toutes</button>
+        <button type="button" data-filtre="actives" aria-pressed="false">Actives</button>
+        <button type="button" data-filtre="terminees" aria-pressed="false">Terminées</button>
+      </div>
+    </div>
+
+    <ul id="liste" class="liste" role="list" aria-label="Tâches"></ul>
+    <p id="vide" class="vide" hidden>Aucune tâche pour le moment.</p>
+
+    <footer class="pied">
+      <button type="button" id="bouton-purger">Supprimer les tâches terminées</button>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
